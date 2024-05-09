@@ -1,5 +1,6 @@
 .custom-font {
     font-family: 'Roboto', sans-serif;
+    text-align: center;
 }
 
 @keyframes fadeIn {

@@ -1,8 +1,10 @@
-import Introduction from "./homepage/Introduction";
 import NavigationBar from "./navi/Navbar";
 import { Container, Row, Col } from "react-bootstrap";
 import backgroundImage from "./assets/background-player-on-right.jpg";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./App.css";
+import Sectii from "./sectii/Sectii";
+import Introduction from "./homepage/Introduction";
 
 function App() {
   const containerStyle = {
@@ -13,11 +15,17 @@ function App() {
     minHeight: "100vh",
     width: "100%",
   };
+
   return (
-    <div fluid style={containerStyle}>
-      <NavigationBar />
-      <Introduction />
-    </div>
+    <Router>
+      <div fluid="true" style={containerStyle}>
+        <NavigationBar />
+        <Routes>
+          <Route path="/" element={<Introduction />} />
+          <Route path="/sectii" element={<Sectii />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
