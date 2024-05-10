@@ -17,8 +17,20 @@
     background-color: transparent !important;
 }
 
+.custom-list-item {
+    background-color: transparent !important;
+    color:white;
+    font-size: large;
+    font-weight: 500;
+}
+
 .nav-link {
     color: white !important;
     font-weight: 'bold';
     font-size:x-large ;
+}
+
+.tab-container-wrapper {
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
