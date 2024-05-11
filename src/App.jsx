@@ -1,10 +1,10 @@
 import NavigationBar from "./navi/Navbar";
-import { Container, Row, Col } from "react-bootstrap";
 import backgroundImage from "./assets/background-player-on-right.jpg";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Sectii from "./sectii/Sectii";
 import Introduction from "./homepage/Introduction";
+import Anunturi from "./anunturi/Anunturi";
 
 function App() {
   const containerStyle = {
@@ -23,6 +23,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Introduction />} />
           <Route path="/sectii" element={<Sectii />} />
+          <Route path="/anunturi" element={<Anunturi />} />
         </Routes>
       </div>
     </Router>

@@ -34,3 +34,25 @@
     overflow-x: hidden;
     overflow-y: hidden;
 }
+
+.anunt-card {
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+}
+
+.anunt-card-button {
+    background-color: #4300fc;
+}
+
+.anunt-card-button:hover {
+    background-color: #7948ff;
+}
+
+.add-anunt {
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+}
+
+.add-anunt:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+}
