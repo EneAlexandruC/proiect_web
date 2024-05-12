@@ -43,6 +43,17 @@ app.delete("/delete-anunturi:id", (req, res) =>{
     })
 })
 
+app.put("/update-anunturi:id", (req, res) =>{
+    const anuntID = req.params.id;
+    const query = "UPDATE anunt SET `Title` = ?, `Author` = ?, `Description` = ?, `Url` = ? WHERE anunt.ID = ?"
+    const values = [req.body.Title, req.body.Author, req.body.Description, req.body.Url]
+
+    db.query(query, [...values,anuntID], (err,data) => {
+        if (err) return res.json(err)
+        return res.json("Anunt actualizat cu succes!")
+    })
+})
+
 app.listen(8800, () =>{
     console.log("Connected to backend!")
 }) 
