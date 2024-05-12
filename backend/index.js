@@ -59,7 +59,7 @@ app.put("/update-anunturi:id", (req, res) =>{
 // ENDPOINT-URI PENTRU ECHIPE/MEMBRII ECHIPELOR
 
 app.get("/get-echipe", (req,res) => {
-    const query = "SELECT * FROM echipa"
+    const query = "SELECT ID, Nume, DATE_FORMAT(DataInscriere, '%Y-%m-%d') AS DataInscriere FROM echipa"
     db.query(query,(err, data) =>{
         if (err) return res.json(err)
         return res.json(data)
