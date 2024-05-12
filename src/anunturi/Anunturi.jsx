@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Anunt from "./Anunt";
 import { Container, Row, Col, Button } from "react-bootstrap";
-import FromAnunt from "./FromAnunt";
+import FromAddAnunt from "./FromAddAnunt";
 
 function Anunturi() {
   const [anunturi, setAnunturi] = useState([]);
@@ -42,16 +42,23 @@ function Anunturi() {
           ))}
         </Row>
       </Container>
-      <Container className="d-flex justify-content-end">
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          paddingRight: "4.5rem",
+          paddingTop: "1.5rem",
+        }}
+      >
         <Button
           className="add-anunt"
           style={{ border: "0px" }}
           onClick={handleShow}
         >
-          Adauga anunturi!
+          Adauga anunturi
         </Button>
-        <FromAnunt show={show} handleClose={handleClose} />
-      </Container>
+      </div>
+      <FromAddAnunt show={show} handleClose={handleClose} />
     </>
   );
 }

@@ -18,10 +18,10 @@ function FromAnunt({ show, handleClose }) {
         Description: description,
         Url: url,
       });
-      console.log("Title:", title);
-      console.log("Author:", author);
-      console.log("Description:", description);
-      console.log("Url:", url);
+      // console.log("Title:", title);
+      // console.log("Author:", author);
+      // console.log("Description:", description);
+      // console.log("Url:", url);
 
       setTitle("");
       setAuthor("");
@@ -38,7 +38,7 @@ function FromAnunt({ show, handleClose }) {
   return (
     <Modal show={show} onHide={handleClose}>
       <Modal.Header closeButton>
-        <Modal.Title>Adăugare anunț</Modal.Title>
+        <Modal.Title>Adaugare anunt</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <Form onSubmit={handleSubmit}>
