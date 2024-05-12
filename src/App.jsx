@@ -5,6 +5,9 @@ import "./App.css";
 import Sectii from "./sectii/Sectii";
 import Introduction from "./homepage/Introduction";
 import Anunturi from "./anunturi/Anunturi";
+import Echipe from "./echipe/Echipe";
+import Galerie from "./galerie/Galerie";
+import Contact from "./contact/Contact";
 
 function App() {
   const containerStyle = {
@@ -24,6 +27,9 @@ function App() {
           <Route path="/" element={<Introduction />} />
           <Route path="/sectii" element={<Sectii />} />
           <Route path="/anunturi" element={<Anunturi />} />
+          <Route path="/echipe" element={<Echipe />} />
+          <Route path="/galerie" element={<Galerie />} />
+          <Route path="/contact" element={<Contact />} />
         </Routes>
       </div>
     </Router>

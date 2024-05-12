@@ -14,6 +14,8 @@ const db = mysql.createConnection({
     database:"club_sportiv"
 })
 
+// ENDPOINT-URI PENTRU ANUNTURI
+
 app.get("/get-anunturi", (req,res) => {
     const query = "SELECT * FROM anunt"
     db.query(query,(err, data) =>{
@@ -51,6 +53,16 @@ app.put("/update-anunturi:id", (req, res) =>{
     db.query(query, [...values,anuntID], (err,data) => {
         if (err) return res.json(err)
         return res.json("Anunt actualizat cu succes!")
+    })
+})
+
+// ENDPOINT-URI PENTRU ECHIPE/MEMBRII ECHIPELOR
+
+app.get("/get-echipe", (req,res) => {
+    const query = "SELECT * FROM echipa"
+    db.query(query,(err, data) =>{
+        if (err) return res.json(err)
+        return res.json(data)
     })
 })
 
