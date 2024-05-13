@@ -66,6 +66,22 @@ app.get("/get-echipe", (req,res) => {
     })
 })
 
+app.get("/get-membri:id", (req, res) => {
+    const echipaID = req.params.id
+    const query = `
+    SELECT membru_echipa.ID, CONCAT_WS(' ', membru_echipa.Nume, membru_echipa.Prenume) AS Nume, membru_echipa.CNP
+    FROM membru_echipa 
+    INNER JOIN echipa 
+    ON membru_echipa.ID_echipa = echipa.ID
+    WHERE membru_echipa.ID_echipa = ?;`
+
+    db.query(query,[echipaID],(err, data) =>{
+        if (err) return res.json(err)
+        console.log(data)
+        return res.json(data)
+    })
+})
+
 app.listen(8800, () =>{
     console.log("Connected to backend!")
 }) 
