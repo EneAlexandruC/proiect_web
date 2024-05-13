@@ -7,7 +7,7 @@ import FromAddAnunt from "./FromAddAnunt";
 function Anunturi() {
   const [anunturi, setAnunturi] = useState([]);
   const [show, setShow] = useState(false);
-
+  
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
