@@ -82,6 +82,40 @@ app.get("/get-membri:id", (req, res) => {
     })
 })
 
+app.post("/add-membru", (req,res) => {
+    const query = `INSERT INTO membru_echipa (ID_echipa, Nume, Prenume, CNP) VALUES (?)`
+    const values = [req.body.ID_echipa, req.body.Nume, req.body.Prenume, req.body.CNP]
+
+    db.query(query,[values],(err, data) =>{
+        if (err) return res.json(err)
+        return res.json(data)
+    })
+})
+
+app.delete("/delete-membru:id", (req, res) =>{
+    const membruID = req.params.id;
+    const query = "DELETE FROM membru_echipa WHERE membru_echipa.ID = ?"
+
+    db.query(query, [membruID], (err,data) => {
+        if (err) return res.json(err)
+        return res.json(data)
+    })
+})
+
+app.put("/update-membru:id", (req, res) =>{
+    const membruID = req.params.id;
+    const query = `
+    UPDATE membru_echipa 
+    SET Nume = ?, Prenume = ?, CNP = ? 
+    WHERE membru_echipa.ID = ?`
+    const values = [req.body.Nume, req.body.Prenume, req.body.CNP]
+
+    db.query(query, [...values,membruID], (err,data) => {
+        if (err) return res.json(err)
+        return res.json("Membru actualizat cu succes!")
+    })
+})
+
 app.listen(8800, () =>{
     console.log("Connected to backend!")
 }) 

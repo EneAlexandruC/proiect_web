@@ -10,15 +10,18 @@ function CardEchipa(props) {
   const handleClose = () => {
     setShow(false);
   };
+
+  const fetchMembrii = async (id) => {
+
+    try {
+      const res = await axios.get("http://localhost:8800/get-membri" + id);
+      setMembri(res.data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   const handleShow = () => {
-    const fetchMembrii = async (id) => {
-      try {
-        const res = await axios.get("http://localhost:8800/get-membri" + id);
-        setMembri(res.data);
-      } catch (err) {
-        console.log(err);
-      }
-    };
     setShow(true);
     fetchMembrii(props.id);
   };
@@ -42,8 +45,11 @@ function CardEchipa(props) {
         show={show}
         handleClose={handleClose}
         nume={props.nume}
-        id={props.id}
+        idEchipa={props.id}
         membri={membri}
+        fetchMembrii={() => {
+          fetchMembrii(props.id);
+        }}
       />
     </>
   );
