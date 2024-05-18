@@ -12,7 +12,7 @@ function Introduction() {
             style={{ animation: "fadeIn 1s ease-in-out" }}
           >
             <p style={{ fontSize: "3rem" }}>
-              Clubul Sportiv "Padurarii Dacici" este o comunitate dedicata
+              Clubul Sportiv "Dacii Liberi" este o comunitate dedicata
               promovarii unui stil de viata sanatos prin activitati sportive
               diverse. Infiiat in 2010, clubul nostru are ca scop sa ofere
               oportunitati de antrenament si competitie pentru toate varstele si

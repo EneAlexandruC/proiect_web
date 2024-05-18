@@ -4,10 +4,10 @@ import Anunt from "./Anunt";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import FromAddAnunt from "./FromAddAnunt";
 
-function Anunturi() {
+function Anunturi({ isAuthorised }) {
   const [anunturi, setAnunturi] = useState([]);
   const [show, setShow] = useState(false);
-  
+
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
@@ -37,27 +37,30 @@ function Anunturi() {
                 author={anunt.Author}
                 description={anunt.Description}
                 url={anunt.Url}
+                isAuthorised={isAuthorised}
               />
             </Col>
           ))}
         </Row>
       </Container>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          paddingRight: "4.5rem",
-          paddingTop: "1.5rem",
-        }}
-      >
-        <Button
-          className="add-anunt"
-          style={{ border: "0px" }}
-          onClick={handleShow}
+      {isAuthorised && (
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            paddingRight: "4.5rem",
+            paddingTop: "1.5rem",
+          }}
         >
-          Adauga anunturi
-        </Button>
-      </div>
+          <Button
+            className="add-anunt"
+            style={{ border: "0px" }}
+            onClick={handleShow}
+          >
+            Adauga anunturi
+          </Button>
+        </div>
+      )}
       <FromAddAnunt show={show} handleClose={handleClose} />
     </>
   );

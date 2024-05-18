@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
-import { Button, ListGroup } from "react-bootstrap";
+import { Button, ListGroup, Container, Col, Row } from "react-bootstrap";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import FromAdd from "./FormAdd";
 import FromModifica from "./FormModifica";
@@ -12,6 +12,7 @@ function OffcanvasMembrii({
   membri,
   fetchMembrii,
   idEchipa,
+  isAuthorised,
 }) {
   const [showFormAdd, setShowFormAdd] = useState(false);
   const [showFormUpdate, setShowFormUp] = useState(false);
@@ -47,34 +48,60 @@ function OffcanvasMembrii({
   };
 
   return (
-    <Offcanvas show={show} onHide={handleClose}>
+    <Offcanvas show={show} onHide={handleClose} className="anunt-card">
       <Offcanvas.Header closeButton>
         <Offcanvas.Title>Lista membri: {nume}</Offcanvas.Title>
       </Offcanvas.Header>
       <Offcanvas.Body>
         <ListGroup>
           {membri.map((membru) => (
-            <ListGroup.Item key={membru.ID}>
-              Nume: {membru.Nume}, Varsta: {getVarsta(membru)}, Sex:
-              {getSex(membru)}
-              <Button onClick={handleShowFormsUp}>Modifica</Button>
-              <Button
-                onClick={() => {
-                  handleDeleteButtonClick(membru.ID);
-                }}
-              >
-                Sterge
-              </Button>
-              <FromModifica
-                show={showFormUpdate}
-                handleClose={handleCloseFormsUp}
-                fetchMembrii={fetchMembrii}
-                id={membru.ID}
-              />
+            <ListGroup.Item key={membru.ID} className="anunt-card">
+              Nume: {membru.Nume}
+              <br />
+              Varsta: {getVarsta(membru)}
+              <br />
+              Sex: {getSex(membru)}
+              {isAuthorised && (
+                <Container>
+                  <Row className="justify-content-center mt-3">
+                    <Col>
+                      <Button
+                        onClick={handleShowFormsUp}
+                        className="anunt-card-button"
+                      >
+                        Modifica
+                      </Button>
+                    </Col>
+                    <Col>
+                      <Button
+                        onClick={() => {
+                          handleDeleteButtonClick(membru.ID);
+                        }}
+                        className="anunt-card-button"
+                      >
+                        Sterge
+                      </Button>
+                    </Col>
+                    <FromModifica
+                      show={showFormUpdate}
+                      handleClose={handleCloseFormsUp}
+                      fetchMembrii={fetchMembrii}
+                      id={membru.ID}
+                    />
+                  </Row>
+                </Container>
+              )}
             </ListGroup.Item>
           ))}
         </ListGroup>
-        <Button onClick={handleShowFormsAdd}>Adauga</Button>
+        {isAuthorised && (
+          <Button
+            onClick={handleShowFormsAdd}
+            className="mt-3 anunt-card-button"
+          >
+            Adauga
+          </Button>
+        )}
         <FromAdd
           show={showFormAdd}
           handleClose={handleCloseFormsAdd}

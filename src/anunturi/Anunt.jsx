@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import axios from "axios";
@@ -37,24 +37,28 @@ function Anunt(props) {
                 Vezi mai mult
               </Button>
             </Col>
-            <Col xs="auto">
-              <Button
-                className="anunt-card-button"
-                variant="primary"
-                onClick={() => handleDeleteButtonClick(props.id)}
-              >
-                Sterge
-              </Button>
-            </Col>
-            <Col xs="auto">
-              <Button
-                className="anunt-card-button"
-                variant="primary"
-                onClick={handleShow}
-              >
-                Modifica
-              </Button>
-            </Col>
+            {props.isAuthorised && (
+              <>
+                <Col xs="auto">
+                  <Button
+                    className="anunt-card-button"
+                    variant="primary"
+                    onClick={() => handleDeleteButtonClick(props.id)}
+                  >
+                    Sterge
+                  </Button>
+                </Col>
+                <Col xs="auto">
+                  <Button
+                    className="anunt-card-button"
+                    variant="primary"
+                    onClick={handleShow}
+                  >
+                    Modifica
+                  </Button>
+                </Col>
+              </>
+            )}
             <FormModificaAnunt
               show={show}
               handleClose={handleClose}

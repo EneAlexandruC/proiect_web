@@ -3,7 +3,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import CardEchipa from "./CardEchipa";
 import axios from "axios";
 
-function Echipe() {
+function Echipe({ isAuthorised }) {
   const [echipe, setEchipe] = useState([]);
 
   useEffect(() => {
@@ -32,6 +32,7 @@ function Echipe() {
                 id={echipa.ID}
                 nume={echipa.Nume}
                 dataInscrierii={echipa.DataInscriere}
+                isAuthorised={isAuthorised}
               />
             </Col>
           );

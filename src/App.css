@@ -56,3 +56,7 @@
 .add-anunt:hover {
     background-color: rgba(0, 0, 0, 0.5);
 }
+
+img.poza-galerie {
+    border: 3px solid black
+}

@@ -12,7 +12,6 @@ function CardEchipa(props) {
   };
 
   const fetchMembrii = async (id) => {
-
     try {
       const res = await axios.get("http://localhost:8800/get-membri" + id);
       setMembri(res.data);
@@ -29,11 +28,17 @@ function CardEchipa(props) {
   return (
     <>
       <Container>
-        <Card className="text-center">
+        <Card className="text-center anunt-card">
           <Card.Body>
-            <Card.Title>{props.nume}</Card.Title>
-            <Button variant="primary" onClick={handleShow}>
-              Arata membrii
+            <Card.Title className="p-4 m-3">
+              <h1>{props.nume}</h1>
+            </Card.Title>
+            <Button
+              variant="primary"
+              onClick={handleShow}
+              className="anunt-card-button"
+            >
+              Arata membri
             </Button>
           </Card.Body>
           <Card.Footer className="text-muted">
@@ -42,6 +47,7 @@ function CardEchipa(props) {
         </Card>
       </Container>
       <OffcanvasMembrii
+        isAuthorised={props.isAuthorised}
         show={show}
         handleClose={handleClose}
         nume={props.nume}
