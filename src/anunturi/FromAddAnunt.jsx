@@ -18,10 +18,6 @@ function FromAnunt({ show, handleClose }) {
         Description: description,
         Url: url,
       });
-      // console.log("Title:", title);
-      // console.log("Author:", author);
-      // console.log("Description:", description);
-      // console.log("Url:", url);
 
       setTitle("");
       setAuthor("");

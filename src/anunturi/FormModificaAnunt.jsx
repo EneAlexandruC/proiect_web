@@ -2,7 +2,11 @@ import axios from "axios";
 import React, { useState } from "react";
 import { Modal, Button, Form } from "react-bootstrap";
 
-function FormModificaAnunt({ show, handleClose, id }) {
+function FormModificaAnunt({
+  show,
+  handleClose,
+  id,
+}) {
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
   const [description, setDescription] = useState("");

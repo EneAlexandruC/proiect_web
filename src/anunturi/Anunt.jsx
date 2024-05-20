@@ -63,6 +63,10 @@ function Anunt(props) {
               show={show}
               handleClose={handleClose}
               id={props.id}
+              title={props.title}
+              author={props.author}
+              description={props.description}
+              url={props.url}
             />
           </Row>
         </Container>

@@ -9,6 +9,11 @@ function FromModifica({ show, handleClose, fetchMembrii, id }) {
 
   const handleSubmit = async (event, id) => {
     event.preventDefault();
+
+    if (nume == ""){
+      
+    }
+
     try {
       await axios.put(`http://localhost:8800/update-membru` + id, {
         Nume: nume,

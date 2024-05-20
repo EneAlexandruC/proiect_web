@@ -30,7 +30,10 @@ function Anunturi({ isAuthorised }) {
       <Container style={{ paddingTop: "2rem" }}>
         <Row>
           {anunturi.map((anunt) => (
-            <Col key={anunt.ID} style={{ padding: "2rem" }}>
+            <Col
+              key={anunt.ID}
+              style={{ padding: "2rem", animation: "fadeIn 1s ease-in-out" }}
+            >
               <Anunt
                 id={anunt.ID}
                 title={anunt.Title}

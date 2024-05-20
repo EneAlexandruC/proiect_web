@@ -1,6 +1,6 @@
 import axios from "axios";
-import { useState } from "react";
-import { Button, ListGroup, Container, Col, Row } from "react-bootstrap";
+import { useState, useEffect } from "react";
+import { Button, ListGroup, Col, Row } from "react-bootstrap";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import FromAdd from "./FormAdd";
 import FromModifica from "./FormModifica";
@@ -62,7 +62,12 @@ function OffcanvasMembrii({
               <br />
               Sex: {getSex(membru)}
               {isAuthorised && (
-                <Container>
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                  }}
+                >
                   <Row className="justify-content-center mt-3">
                     <Col>
                       <Button
@@ -89,18 +94,25 @@ function OffcanvasMembrii({
                       id={membru.ID}
                     />
                   </Row>
-                </Container>
+                </div>
               )}
             </ListGroup.Item>
           ))}
         </ListGroup>
         {isAuthorised && (
-          <Button
-            onClick={handleShowFormsAdd}
-            className="mt-3 anunt-card-button"
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "right",
+            }}
           >
-            Adauga
-          </Button>
+            <Button
+              onClick={handleShowFormsAdd}
+              className="mt-3 anunt-card-button"
+            >
+              Adauga
+            </Button>
+          </div>
         )}
         <FromAdd
           show={showFormAdd}

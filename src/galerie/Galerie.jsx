@@ -6,7 +6,7 @@ import img2 from "../assets/galerie_poza_4.jpg";
 function Galerie() {
   return (
     <Container style={{ fontSize: "2rem" }}>
-      <Row>
+      <Row style={{ animation: "fadeIn 1s ease-in-out" }}>
         <Col>
           <img
             src={img1}
@@ -24,7 +24,7 @@ function Galerie() {
           </i>
         </Col>
       </Row>
-      <Row>
+      <Row style={{ animation: "fadeIn 1s ease-in-out" }}>
         <Col style={{ paddingTop: "2rem" }}>
           <i>
             Sportul serios nu are legătură cu jocul cinstit. Are legătură cu

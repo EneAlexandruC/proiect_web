@@ -9,13 +9,20 @@ function Contact() {
           textAlign: "center",
           fontSize: "6rem",
           paddingBottom: "10rem",
+          animation: "fadeIn 1s ease-in-out",
         }}
       >
         <Row>
           <Col>Unde ne puteti gasi?</Col>
         </Row>
       </Container>
-      <Container style={{ textAlign: "center", fontSize: "3rem" }}>
+      <Container
+        style={{
+          textAlign: "center",
+          fontSize: "3rem",
+          animation: "fadeIn 1s ease-in-out",
+        }}
+      >
         <Row className="pb-3">
           <Col>Adresa: Craiova, Strada Libertatii, Nr. 16</Col>
         </Row>

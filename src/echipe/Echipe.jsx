@@ -27,7 +27,10 @@ function Echipe({ isAuthorised }) {
         {echipe.map((echipa) => {
           console.log("echipa");
           return (
-            <Col key={echipa.ID} style={{ padding: "2rem" }}>
+            <Col
+              key={echipa.ID}
+              style={{ padding: "2rem", animation: "fadeIn 1s ease-in-out" }}
+            >
               <CardEchipa
                 id={echipa.ID}
                 nume={echipa.Nume}
